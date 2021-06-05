@@ -1,6 +1,8 @@
+require('colors')
 const express = require('express')
 const cors = require('cors')
-require('colors')
+
+const {dbConnection} = require('./database/database.config')
 
 module.exports = class Server{
     
@@ -8,6 +10,8 @@ module.exports = class Server{
         this.app = express()
         
         this.port = process.env.PORT
+
+        this.database()
 
         this.middlewares()
 
@@ -17,6 +21,10 @@ module.exports = class Server{
     middlewares(){
         this.app.use(cors())
         this.app.use(express.json())
+    }
+    
+    async database(){
+        await dbConnection()
     }
     
     listen(){
