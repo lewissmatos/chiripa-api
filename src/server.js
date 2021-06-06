@@ -22,11 +22,10 @@ module.exports = class Server{
         this.app.use(cors())
         this.app.use(express.json())
     }
-    
+
     async database(){
         await dbConnection()
     }
-    
     listen(){
         this.app.listen(this.port, ()=> console.log(`Server running at http://localhost:${this.port}`.blue))
     }
