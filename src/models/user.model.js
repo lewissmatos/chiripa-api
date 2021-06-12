@@ -24,9 +24,33 @@ const UserSchema = Schema({
         unique:true,
         trim:true
     },
+    phone:{
+        type:String,
+        trim:true
+    },
+    instagram:{
+        type:String,
+        trim:true
+    },
+    linkedin:{
+        type:String,
+        trim:true
+    },
+    desc:{
+        type:String,
+        trim:true
+    },
     role:{
         enum:['USER_ROLE','POSTER_ROLE']
     },
+    areas:[
+        {type:String, trim:true}
+    ],
+    rate:{
+        type:Number,
+        default: 0
+    },
+
 })
 
 module.exports = model('User', UserSchema)
