@@ -36,7 +36,7 @@ exports.getUserByRole = async (req, res) => {
     
     try {
 
-        const user = await Users.findOne(role)
+        const user = await Users.findOne({role})
 
         return res.status(200).json({ok:true, data: user})
 
@@ -62,12 +62,11 @@ exports.editUserById = async (req, res) => {
 
     const {id} = req.params
 
-    const {_id, email, role, pass, ...editedUser} = req.body
+    const {_id, email, role, pass, rate, ...rest} = req.body
     
-    const {} = req.body
     try {
 
-        const editedUser = await Users.findByIdAndUpdate(id, {new: true})
+        const editedUser = await Users.findByIdAndUpdate(id, rest, {new: true})
 
         return res.status(200).json({ok:true, data: editedUser})
 

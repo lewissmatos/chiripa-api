@@ -28,20 +28,30 @@ const UserSchema = Schema({
         type:String,
         trim:true
     },
-    instagram:{
-        type:String,
-        trim:true
-    },
-    linkedin:{
-        type:String,
-        trim:true
+    social:{
+        email:{    
+            type:String,
+            trim:true
+        },
+        instagram:{
+            type:String,
+            trim:true
+        },
+        twitter:{
+            type:String,
+            trim:true
+        },
+        linkedin:{
+            type:String,
+            trim:true
+        },
     },
     desc:{
         type:String,
         trim:true
     },
     role:{
-        enum:['USER_ROLE','POSTER_ROLE']
+        enum:['WORKER_ROLE','USER_ROLE']
     },
     areas:[
         {type:String, trim:true}

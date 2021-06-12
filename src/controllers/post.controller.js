@@ -1,3 +1,4 @@
+const { find } = require("../models/post.model")
 const Posts = require("../models/post.model")
 
 exports.getAllPosts = async (req, res) =>{
@@ -43,18 +44,30 @@ exports.getPostsByUserLogged = async (req, res) =>{
     }
 }
 
-exports.createPost = async (req, ers) =>{
-
-    const {area, desc, pay, } =req.body
+exposts.getPostByUserArea = async (req, res) => {
     
+    try {
+
+        posts = await find({area: {$in: req.user.area} })
+
+        return res.status(200).json({ok:true, data: posts})
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ok:false, data: error})
+    }
+}
+
+exports.createPost = async (req, res) =>{
+
+    const {area, desc, pay } = req.body
+    const user = req.user._id    
     try {
         
         const post = new Post({
-            area: area,
-            desc: desc,
-            pay: pay,
-            status:false,
-            user: req.user._id
+            area,
+            desc,
+            pay,
+            user
         }) 
 
         await post.save()

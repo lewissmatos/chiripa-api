@@ -20,7 +20,13 @@ const PostSchema = Schema({
     user:{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    appliedUsers:[
+        {
+            type:Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 })
 
 module.exports = model('Post' ,PostSchema)
