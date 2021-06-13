@@ -4,6 +4,9 @@ const cors = require('cors')
 
 const {dbConnection} = require('./database/database.config')
 
+const userRoute = require('./routes/user.route')
+const postRoute = require('./routes/post.route')
+
 module.exports = class Server{
     
     constructor(){
@@ -16,6 +19,9 @@ module.exports = class Server{
         this.middlewares()
 
         this.routes()
+
+        this.usersPath = 'api/v1/users'
+        this.postsPath = 'api/v1/posts'
     }
 
     middlewares(){
@@ -32,6 +38,9 @@ module.exports = class Server{
 
     routes(){
         this.app.get('/', (req, res) => res.send('API found job App'))
+        
+        this.app.use(this.usersPath, userRoute)
+        this.app.use(this.usersPath, postRoute)
     }
 
 }

@@ -56,7 +56,7 @@ exports.getPostsByUserLogged = async (req, res) =>{
 // @desc        get all post match with user logged area
 // @route       GET /api/v1/posts/area/:area
 // @access      public USERS
-exposts.getPostsByUserArea = async (req, res) => {
+exports.getPostsByUserArea = async (req, res) => {
     
     try {
 
