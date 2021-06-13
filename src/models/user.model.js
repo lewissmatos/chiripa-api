@@ -61,6 +61,6 @@ const UserSchema = Schema({
         default: 0
     },
 
-})
+}, {timestamps:true, versionKey: false})
 
 module.exports = model('User', UserSchema)

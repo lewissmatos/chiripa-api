@@ -7,8 +7,6 @@ router.get('/', userCtrl.getAllUsers)
 
 router.get('/:id', userCtrl.getUserById)
 
-router.get('role/:role', userCtrl.getUserByRole)
-
 router.get('/current-user', userCtrl.getCurrentUser)
 
 router.put('/:id', userCtrl.editUserById)

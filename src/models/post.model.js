@@ -27,6 +27,6 @@ const PostSchema = Schema({
             ref: 'User'
         }
     ]
-})
+}, {timestamps:true, versionKey: false})
 
 module.exports = model('Post' ,PostSchema)

@@ -1,6 +1,9 @@
 const { find, findOneAndUpdate } = require("../models/post.model")
 const Posts = require("../models/post.model")
 
+// @desc        get all posts
+// @route       GET /api/v1/posts
+// @access      public USERS
 exports.getAllPosts = async (req, res) =>{
     
     try {
@@ -15,6 +18,9 @@ exports.getAllPosts = async (req, res) =>{
     }
 }
 
+// @desc        get post by post id
+// @route       GET /api/v1/posts/:id
+// @access      public USERS
 exports.getPostById = async (req, res) =>{
     
     const {id} = req.params
@@ -30,6 +36,9 @@ exports.getPostById = async (req, res) =>{
     }
 }
 
+// @desc        get all post makes by user logged
+// @route       GET /api/v1/posts/user/:id
+// @access      public USERS
 exports.getPostsByUserLogged = async (req, res) =>{
     
     try {
@@ -44,7 +53,10 @@ exports.getPostsByUserLogged = async (req, res) =>{
     }
 }
 
-exposts.getPostByUserArea = async (req, res) => {
+// @desc        get all post match with user logged area
+// @route       GET /api/v1/posts/area/:area
+// @access      public USERS
+exposts.getPostsByUserArea = async (req, res) => {
     
     try {
 
@@ -58,6 +70,9 @@ exposts.getPostByUserArea = async (req, res) => {
     }
 }
 
+// @desc        create post
+// @route       POST /api/v1/posts
+// @access      public USERS
 exports.createPost = async (req, res) =>{
 
     const {area, desc, pay } = req.body
@@ -81,6 +96,9 @@ exports.createPost = async (req, res) =>{
     }
 }
 
+// @desc        update an post
+// @route       PUT /api/v1/posts/:id
+// @access      public USERS
 exports.editPostById = async (req, res) => {
 
     const {id} = req.params 
@@ -99,6 +117,9 @@ exports.editPostById = async (req, res) => {
     }
 }
 
+// @desc        delete an post
+// @route       DELETE /api/v1/posts/:id
+// @access      public USERS
 exports.deletePostById = async (req, res) => {
 
     const {id} = req.params 
@@ -115,6 +136,9 @@ exports.deletePostById = async (req, res) => {
     }
 }
 
+// @desc        apply to work 
+// @route       PUT /api/v1/posts/:id
+// @access      public USERS
 exports.applyToPost = async (req, res) => {
 
     const {id} = req.params
